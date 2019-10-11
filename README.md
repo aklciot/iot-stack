@@ -31,7 +31,7 @@ In the top level if the repository you just cloned above you will see a file cal
 `docker-compose up -d`
 This will take quite a while depending on your internet speed and how powerful the computer is. But once finished, your IoT stack should be ready for you.
 
-#IoT Stack components
+# IoT Stack components
 ## Nodered
 This is where flows and controls are created an managed. To access it enter the following URL on the computer that the IoT Stack is running `http://localhost:1880`. If you are on a different computer on the same network you will need to find out the ip address on the IoT Stack computer. the from a browser on a different computer `http://iot-stack-ip-address:1880`
 An example flow will be on NodeRed as an example. This flow takes data from Innovate Auckland's system and stores it in Thingsboard (see below).
