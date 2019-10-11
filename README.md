@@ -15,6 +15,10 @@ This is a fairly straight forward process:
 Follow the documentation [here](https://docs.docker.com/install/) for your operating system/computer.
 You can check to see if it is installed by running the following command from the command line:
 `sudo docker run hello-world`
+You may get a permissions error if you are on inux, if so do the following:
+`sudo groupadd docker`
+`sudo usermod -aG docker $USER`
+Log out, then log back in again and retry the hellow world test.
 ### Install docker-compose (if on a linux based computer)
 Information on how to installcan be found [here](https://docs.docker.com/compose/install/)
 ### Install git
@@ -26,3 +30,12 @@ Create a folder on your computer where you want to store the IoT stack files. Fr
 In the top level if the repository you just cloned above you will see a file called `docker-compose.yml`. On the command line change into this folder and then run the following command:
 `docker-compose up -d`
 This will take quite a while depending on your internet speed and how powerful the computer is. But once finished, your IoT stack should be ready for you.
+
+#IoT Stack components
+## Nodered
+This is where flows and controls are created an managed. To access it enter the following URL on the computer that the IoT Stack is running `http://localhost:1880`. If you are on a different computer on the same network you will need to find out the ip address on the IoT Stack computer. the from a browser on a different computer `http://iot-stack-ip-address:1880`
+An example flow will be on NodeRed as an example. This flow takes data from Innovate Auckland's system and stores it in Thingsboard (see below).
+## MQTT
+This is a simple system to take IoT messages and distribute them to where they are needed.
+## Thingsboard
+This is a data storage and visualisation system. Nodered stores the data in Thingsboard which is then configured with dashboards so poeple can make use of the data.
