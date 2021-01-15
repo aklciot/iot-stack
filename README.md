@@ -27,22 +27,23 @@ You may get a permissions error if you are on inux, if so do the following:
 `sudo usermod -aG docker $USER`
 Log out, then log back in again and retry the hellow world test.
 ### Install docker-compose (if on a linux based computer)
-Information on how to installcan be found [here](https://docs.docker.com/compose/install/)
+Information on how to install can be found [here](https://docs.docker.com/compose/install/)
 ### Install git
 git is a system to manage source code and file. We use it to manage the files that the IoT stack uses. You need to install git to copy these files onto your computer. It is usually pre-installed on linux computers, but if not information on how to install it can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Clone this repository
 Create a folder on your computer where you want to store the IoT stack files. From the command line, go to this folder and then run:
+
 `git clone https://github.com/aklciot/iot-stack.git`
 ### Create DNS entries
 
-3 DNS entries are needed, one each for thingsboard, Nodered and mosquitto (MQTT)
-This documentation assumes you have the 3 DNS entries all pointing to the IP address of the computer hosting the IoT Stack. This can be quite involved, there are some notes at the bottom of this page.
+3 DNS entries are needed, one each for Thingsboard, Nodered and Mosquitto (MQTT)
+This documentation assumes you have the 3 DNS entries all pointing to the IP address of the computer hosting the IoT Stack. This can be quite involved, there are some notes at the bottom of this page. The following are example used in this document, you need to replace these with your entries.
 * `thingsboard.iot-stack.example`
 * `nodered.iot-stack.example`
 * `mqtt.iot-stack.example`
 
 ### Modify the docker-compose.yml file
-The docker-compose command will be used to run the iot stack, but you need to make some changes to it so it works for you. 
+The docker-compose command will be used to run the iot stack, but you need to make some changes the the `docker-compose.yml` configuration file so it works for you. 
 1. Change to the folder just created by your clone command `cd iot-stack`
 2. Edit the file (nano is an editor on most linux systems) `nano docker-compose.yml`
 3. Look for the line
@@ -91,7 +92,7 @@ What is needed is a DNS name that takes the user to your host/traefik instance. 
 
 ### If you do not have a static IP address.
 This is a very likely occurrence if you are using Fibre/ADSL from a telco. Use a dynamic DNS system like [DuckDNS](https://www.duckdns.org/) to get a DNS name you can use. 
-* Create an account on their site
+* Create an account on their [site](https://www.duckdns.org/)
 * follow instructions to [install](https://www.duckdns.org/install.jsp) onto your host.
 * If you are not a potato you will have a DNS name that points to our computer, and even if your ISP changes your IP address the DNS entry will change automatically for you.
 
